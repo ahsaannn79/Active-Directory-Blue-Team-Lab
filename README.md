@@ -5,6 +5,7 @@ A hands-on Active Directory security lab designed to explore enterprise identity
 The project follows a complete Blue Team workflow:  
 
 **Build → Monitor → Attack → Detect → Investigate → Mitigate**
+
 ## 📖 Project Overview
 
 This project is a self-built Active Directory Blue Team home lab created to gain practical experience with enterprise Windows environments, centralized security monitoring, attack simulation, and detection engineering.
@@ -16,6 +17,10 @@ Rather than focusing only on executing attacks, the project emphasizes understan
 ## 📊 Security Monitoring & Telemetry
 
 To provide visibility across the Active Directory environment, multiple Windows logging and monitoring mechanisms were configured.
+
+### Centralized Splunk Telemetry
+
+![Security Telemetry in Splunk](screenshots/splunk-telemetry.png)
 
 
 ## 🏗️ Lab Architecture
@@ -29,9 +34,21 @@ The lab consists of four virtual machines deployed using VMware Workstation:
 | KALI | Attacker Machine | Kali Linux |
 | SPLUNK01 | SIEM Server | Ubuntu Desktop |
 
+### Network Architecture
+
+![Active Directory Blue Team Lab Architecture](screenshots/lab-architecture.jpg)
+
 ### Domain
 
 `corp.local`
+
+### Active Directory Deployment
+
+![Active Directory Deployment](screenshots/active-directory-deployment.png)
+
+### Domain-Joined Endpoint
+
+![Windows 10 Domain-Joined Endpoint](screenshots/domain-joined-endpoint.png)
 
 ### Network
 
@@ -64,11 +81,20 @@ Authentication attempts were performed against multiple domain accounts to simul
 
 The resulting authentication failures were investigated in Splunk to identify patterns involving multiple accounts targeted within a short period.
 
+#### Detection in Splunk
+
+![Password Spraying Detection in Splunk](screenshots/password-spraying-detection.png)
+
+
 ### 2. AS-REP Roasting
 
 An intentionally vulnerable account with Kerberos pre-authentication disabled was identified and used to demonstrate AS-REP Roasting.
 
 The generated Kerberos authentication activity was investigated using Windows Security Event ID `4768`.
+
+#### Detection in Splunk
+
+![AS-REP Roasting Detection in Splunk](screenshots/as-rep-roasting-detection.png)
 
 ### 3. Credential Dumping
 
@@ -79,6 +105,10 @@ Credential material was extracted from the Domain Controller in the controlled l
 A recovered NTLM hash was reused to demonstrate authentication without requiring the account's plaintext password.
 
 The resulting authentication activity was then investigated through the centralized Splunk telemetry.
+
+#### Investigation in Splunk
+
+![Pass-the-Hash Investigation in Splunk](screenshots/Pass-the-hash-detection.png)
 
 
 ## 🔎 Detection Engineering
