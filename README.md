@@ -119,7 +119,7 @@ The goal is to move beyond simple log collection and develop practical SOC-style
 
 A complete technical report documenting the design, deployment, configuration, attack simulations, security monitoring, detection process, troubleshooting, results, and mitigations was created as part of this project.
 
-The full report will be available in this repository.
+📘 **[View the Full Technical Report](docs/Active-Directory-Blue-Team-Lab-Report.pdf)**
 
 
 ## ⚠️ Disclaimer
