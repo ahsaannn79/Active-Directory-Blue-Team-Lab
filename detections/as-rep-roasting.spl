@@ -1,0 +1,20 @@
+index=* EventCode=4768
+| table _time Account_Name Client_Address Ticket_Encryption_Type Pre_Authentication_Type
+| sort - _time
+
+
+Here we're intentionally keeping this one more investigative than claiming:
+
+“Every 4768 = AS-REP attack”
+
+because that's false.
+
+4768 represents a Kerberos TGT request, and your report itself treats the event in context with the targeted account and originating client.
+
+So this query helps an analyst examine:
+
+When?
+Which account?
+From which client?
+Which encryption type?
+What pre-authentication information?
