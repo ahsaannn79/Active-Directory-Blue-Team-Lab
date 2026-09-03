@@ -2,7 +2,7 @@
 
 A hands-on Active Directory security lab designed to explore enterprise identity infrastructure, Windows security telemetry, attack simulation, SIEM monitoring, and detection engineering.
 
-The project follows a complete Blue Team workflow:
+The project follows a complete Blue Team workflow:  
 
 **Build → Monitor → Attack → Detect → Investigate → Mitigate**
 ## 📖 Project Overview
