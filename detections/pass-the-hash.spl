@@ -1,0 +1,25 @@
+index=* EventCode=4624
+| search Authentication_Package=NTLM
+| table _time Account_Name Logon_Type Authentication_Package Source_Network_Address Workstation_Name
+| sort - _time
+
+
+This closely matches what you actually documented.
+
+Your report says the PtH investigation focused on Windows Event ID 4624, then filtered successful logons for NTLM/network authentication characteristics, and correlated the events with the Kali attacker source.
+
+Again, we're not saying:
+
+NTLM = Pass-the-Hash
+
+because normal NTLM authentication can occur legitimately.
+
+Instead, it helps identify authentication that becomes suspicious when you have:
+
+Privileged account
+        +
+NTLM
+        +
+Unexpected source
+        +
+Network logon
